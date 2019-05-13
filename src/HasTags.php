@@ -14,7 +14,20 @@ trait HasTags
 
     public static function getTagClassName(): string
     {
+        $tagClass = config('tags.model');
+
+        if (!$tagClass == Tag::class) {
+            self::checkTagClass();
+        }
+
         return Tag::class;
+    }
+
+    public static function checkTagClass($class)
+    {
+        if (!is_subclass_of(new $class, Tag::class)) {
+            throw new Exception('Tag model must extends Spatie\\Tags\\Tag class');
+        }
     }
 
     public static function bootHasTags()

@@ -7,4 +7,6 @@ return [
      * Defaults to Str::slug (https://laravel.com/docs/5.8/helpers#method-str-slug)
      */
     'slugger' => null,
+
+    'model' => 'Spatie\\Tags\\Tag'
 ];
